@@ -30,8 +30,9 @@ def main():
 
 
 	fig, ax = plt.subplots()
-	ax.plot(rng, cpp_time, color = 'green')
-	ax.plot(rng, python_time, color = 'blue')
+	ax.plot(rng, cpp_time, color = 'green', label = "C++")
+	ax.plot(rng, python_time, color = 'blue', label = "Python")
+	ax.legend()
 	plt.show()
 	plt.savefig("fib_plt.png")
 
