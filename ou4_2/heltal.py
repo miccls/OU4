@@ -12,6 +12,18 @@ class Heltal(object):
 		lib.Heltal_delete.argtypes = [ctypes.c_void_p]
 		self.obj = lib.Heltal_new(val)
 
+	def _fib_py(self, n):
+		if n <= 1:
+			return n
+		else: 
+			return self._fib_py(n - 1) + self._fib_py(n - 2)
+
+	def fib_py(self):
+		return self._fib_py(lib.Heltal_get(self.obj))
+
+	def fib(self):
+		return lib.Heltal_fib(self.obj)
+
 	def get(self):
 		return lib.Heltal_get(self.obj)
 
