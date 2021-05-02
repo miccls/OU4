@@ -20,7 +20,7 @@ def main():
 	# Time comparison for C++ and Python
 	f = Heltal(30)
 	# Dictionary to keep track of data.
-	rng = [i for i in range(30, 40)]
+	rng = [i for i in range(30, 45)]
 
 	with future.ProcessPoolExecutor() as ex:
 		p1 = ex.submit(time_fibb, Heltal.fib, rng)
