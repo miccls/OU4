@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 # For the splitting over two cores
 import concurrent.futures as future
 
-def time_fibb(self, method, rng):
+def time_fibb(method, rng):
 	lst = []
 	f = Heltal(rng[0])
 	for n in rng:
@@ -23,8 +23,8 @@ def main():
 	rng = [i for i in range(30, 45)]
 
 	with future.ProcessPoolExecutor() as ex:
-		p1 = ex.submit(time_fibb, [Heltal.fib, rng])
-		p2 = ex.submit(time_fibb, [Heltal.fib_py, rng])
+		p1 = ex.submit(time_fibb, Heltal.fib, rng)
+		p2 = ex.submit(time_fibb, Heltal.fib_py, rng)
 		cpp_time = p1.result()
 		python_time = p2.result()
 
